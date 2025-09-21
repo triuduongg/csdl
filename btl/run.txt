@@ -1,4 +1,6 @@
-cd C:\Users\triud\Desktop\code\csdl\document_management
-venv\Scripts\activate
-python manage.py migrate kết nối với database
-python manage.py runserver chạy chương trình
+cd .\btl\
+venv\Scripts\activate // Kích hoạt môi trường ảo
+python -m pip install -r requirements.txt // Cài đặt các thư viện
+python manage.py migrate // Kết nối với database
+python manage.py runserver // Chạy chương trình
+
