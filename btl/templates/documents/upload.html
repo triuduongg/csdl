@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Upload tài liệu</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="post" enctype="multipart/form-data" class="mt-4">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+        {{ form.title }}
+        {% if form.title.errors %}
+            <div class="alert alert-danger">{{ form.title.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+        {{ form.description }}
+        {% if form.description.errors %}
+            <div class="alert alert-danger">{{ form.description.errors }}</div>
+        {% endif %}
+        <small class="form-text text-muted">Mô tả chi tiết về tài liệu (không bắt buộc)</small>
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.file.id_for_label }}">{{ form.file.label }}</label>
+        {{ form.file }}
+        {% if form.file.errors %}
+            <div class="alert alert-danger">{{ form.file.errors }}</div>
+        {% endif %}
+        <small class="form-text text-muted">
+            Chọn file để upload. Hỗ trợ: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT, JPG, PNG, GIF, ZIP, RAR
+        </small>
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.target_departments.id_for_label }}">{{ form.target_departments.label }}</label>
+        {{ form.target_departments }}
+        {% if form.target_departments.errors %}
+            <div class="alert alert-danger">{{ form.target_departments.errors }}</div>
+        {% endif %}
+        <small class="form-text text-muted">
+            Chọn phòng ban có thể xem tài liệu này. Nếu chọn "Common" thì tất cả mọi người đều có thể thấy.
+        </small>
+    </div>
+
+    <!-- Hidden visibility_type field -->
+    {{ form.visibility_type }}
+
+    <button type="submit" class="btn btn-primary">Upload tài liệu</button>
+    <a href="{% url 'documents:document_list' %}" class="btn btn-secondary">Quay lại danh sách</a>
+</form>
+
+<!-- Debug information (only show in development) -->
+{% if form.errors %}
+<div class="mt-4">
+    <h5 class="text-danger">Debug Information:</h5>
+    <div class="alert alert-warning">
+        <strong>Form Errors:</strong>
+        <ul>
+            {% for field, errors in form.errors.items %}
+                <li><strong>{{ field }}:</strong> {{ errors|join:", " }}</li>
+            {% endfor %}
+        </ul>
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

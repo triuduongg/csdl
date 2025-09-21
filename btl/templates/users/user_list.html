@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Danh sách người dùng</h2>
+<a href="{% url 'users:user_create' %}">Tạo người dùng mới</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tên đăng nhập</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Phòng ban</th>
+            <th>Chức vụ</th>
+            <th>Admin</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user_profile in users %}
+        <tr>
+            <td>{{ user_profile.user.username }}</td>
+            <td>{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}</td>
+            <td>{{ user_profile.user.email }}</td>
+            <td>
+                {% for department in user_profile.departments.all %}
+                    {% if not department.is_common %}
+                        {{ department.name }}{% if not forloop.last %}, {% endif %}
+                    {% endif %}
+                {% empty %}
+                    Không có
+                {% endfor %}
+            </td>
+            <td>{{ user_profile.position }}</td>
+            <td>{% if user_profile.is_admin %}Có{% else %}Không{% endif %}</td>
+            <td>
+                <a href="{% url 'users:user_update' user_profile.pk %}" class="btn btn-sm btn-primary">Sửa</a>
+                <a href="{% url 'users:user_delete' user_profile.pk %}" class="btn btn-sm btn-danger">Xóa</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

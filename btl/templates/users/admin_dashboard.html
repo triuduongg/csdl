@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+<p>Tổng số phòng ban: {{ total_departments }}</p>
+<p>Tổng số người dùng: {{ total_users }}</p>
+
+<h3>Số tài liệu theo phòng ban</h3>
+<ul>
+    {% for item in documents_per_department %}
+    <li>{{ item.name }}: {{ item.num_documents }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Số người dùng theo phòng ban</h3>
+<ul>
+    {% for item in users_per_department %}
+    <li>{{ item.name }}: {{ item.num_users }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

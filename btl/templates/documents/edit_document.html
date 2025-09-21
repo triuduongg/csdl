@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Sửa tài liệu</h2>
+
+<form method="post" enctype="multipart/form-data" class="mt-4">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+        {{ form.title }}
+        {% if form.title.errors %}
+            <div class="alert alert-danger">{{ form.title.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+        {{ form.description }}
+        {% if form.description.errors %}
+            <div class="alert alert-danger">{{ form.description.errors }}</div>
+        {% endif %}
+        <small class="form-text text-muted">Mô tả chi tiết về tài liệu (không bắt buộc)</small>
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.file.id_for_label }}">{{ form.file.label }}</label>
+        {{ form.file }}
+        {% if form.file.errors %}
+            <div class="alert alert-danger">{{ form.file.errors }}</div>
+        {% endif %}
+        <small class="form-text text-muted">
+            Chọn file mới để thay thế (không bắt buộc). Hỗ trợ: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT, JPG, PNG, GIF, ZIP, RAR
+        </small>
+        {% if document.file %}
+            <div class="mt-2">
+                <small class="text-muted">File hiện tại: <strong>{{ document.file.name|slice:"10:" }}</strong></small>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.target_departments.id_for_label }}">{{ form.target_departments.label }}</label>
+        {{ form.target_departments }}
+        {% if form.target_departments.errors %}
+            <div class="alert alert-danger">{{ form.target_departments.errors }}</div>
+        {% endif %}
+        <small class="form-text text-muted">
+            Chọn phòng ban có thể xem tài liệu này. Nếu chọn "Common" thì tất cả mọi người đều có thể thấy.
+        </small>
+    </div>
+
+    <!-- Hidden visibility_type field -->
+    {{ form.visibility_type }}
+
+    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+    <a href="{% url 'documents:document_list' %}" class="btn btn-secondary">Quay lại danh sách</a>
+</form>
+{% endblock %}
