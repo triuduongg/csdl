@@ -1,4 +1,0 @@
-cd C:\Users\triud\Desktop\code\csdl\document_management
-venv\Scripts\activate
-python manage.py migrate kết nối với database
-python manage.py runserver chạy chương trình
