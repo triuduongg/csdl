@@ -1,0 +1,22 @@
+17/10/25 05:10:47 - admin@gmail.com was used to login
+17/10/25 06:10:15 - admin@gmail.com was used to approve account creation for user under the email of triuduongg374@gmail.com
+17/10/25 06:10:44 - admin@gmail.com was used to login
+17/10/25 06:10:13 - admin@gmail.com was used to create an account under the email of triuduongg374@gmail.com
+17/10/25 06:10:54 - admin@gmail.com was used to deactivate user account under the email of triuduongg374@gmail.com
+17/10/25 06:10:00 - admin@gmail.com was used to create an account under the email of kiendinh@gmail.com
+17/10/25 06:10:51 - admin@gmail.com was logged out
+17/10/25 06:10:23 - admin@gmail.com was used to login
+17/10/25 06:10:29 - admin@gmail.com was logged out
+17/10/25 06:10:17 - admin@gmail.com was used to login
+17/10/25 06:10:58 - admin@gmail.com was used to revoke admin rights from user under the email of admin@gmail.com
+17/10/25 06:10:14 - admin@gmail.com was used to grant admin rights to user under the email of admin@gmail.com
+17/10/25 06:10:25 - admin@gmail.com was used to grant admin rights to user under the email of triuduongg374@gmail.com
+17/10/25 06:10:36 - admin@gmail.com was used to revoke admin rights from user under the email of triuduongg374@gmail.com
+17/10/25 07:10:13 - admin@gmail.com was used to create document1.pdf under reports documents
+17/10/25 07:10:22 - admin@gmail.com was used to apply changes to document1.pdf
+17/10/25 07:10:00 - admin@gmail.com was used to delete document1.pdf
+02/11/25 08:11:08 - admin@gmail.com was used to login
+03/11/25 12:11:18 - admin@gmail.com was used to login
+03/11/25 12:11:08 - admin@gmail.com was logged out
+03/11/25 01:11:52 - admin@gmail.com was used to login
+03/11/25 01:11:29 - admin@gmail.com was logged out
